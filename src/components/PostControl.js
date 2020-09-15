@@ -30,6 +30,10 @@ class PostControl extends React.Component {
     }
   };
 
+  handleEditClick = () => {
+    this.setState({editing: true});
+  }
+
   handleAddingNewPostToList = (newPost) => {
     const newMasterPostList = this.state.masterPostList.concat(newPost);
     this.setState({

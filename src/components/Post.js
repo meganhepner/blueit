@@ -6,7 +6,7 @@ function Post(props){
     <React.Fragment>
       <div onClick={() => props.whenPostClicked(props.id)}>
         <h3>{props.title}</h3>
-        <p>{props.author} - {props.date}</p>
+        <p>Posted by {props.author} on {props.date}</p>
       </div>
     </React.Fragment>
   );

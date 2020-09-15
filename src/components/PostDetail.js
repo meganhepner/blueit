@@ -17,7 +17,7 @@ function PostDetail(props) {
         <Figure>
           <Figure.Image width={250} height={250} src={post.picture} />
           <Figure.Caption>
-            <em>${post.title}</em>
+            <em>{post.title}</em>
           </Figure.Caption>
         </Figure>
       </p>
@@ -42,7 +42,7 @@ function PostDetail(props) {
 PostDetail.propTypes = {
   post: PropTypes.object,
   onClickingDelete: PropTypes.func,
-  onClickingEdit: PropTypes.func,
+  onClickingEdit: PropTypes.func
 };
 
 export default PostDetail;

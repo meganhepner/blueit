@@ -21,12 +21,18 @@ function PostEdit(props) {
       <ReusableForm
         formSubmissionHandler={handleEditingPostInList}
         buttonText="Update Post"
+        defaultTitle={post.title}
+        defaultAuthor={post.author}
+        defaultBody={post.body}
+        defaultDate={post.date}
+        defaultPicture={post.picture}
       />
     </React.Fragment>
   );
 }
 
 PostEdit.propTypes = {
+  post: PropTypes.object,
   onEditPost: PropTypes.func,
 };
 

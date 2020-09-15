@@ -3,7 +3,7 @@ import Header from "./Header";
 import PostControl from "./PostControl";
 
 
-import './App.css';
+import '../App.css';
 
 function App() {
   return (

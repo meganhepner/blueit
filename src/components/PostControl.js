@@ -24,7 +24,7 @@ class PostControl extends React.Component {
         editing: false,
       });
     } else {
-      this.this.setState((prevState) => ({
+      this.setState((prevState) => ({
         formVisibleOnPage: !prevState.formVisibleOnPage,
       }));
     }
@@ -72,14 +72,14 @@ render (){
   let buttonText = null;
 
   if (this.state.editing){
-    currentlyVisibleState = <PostEditForm post={this.state.selectedPost} onEditPost={this.handleEditingPostInList} />
+    currentlyVisibleState = <PostEdit post={this.state.selectedPost} onEditPost={this.handleEditingPostInList} />
     buttonText = "Return to Posts";
   } else if (this.state.selectedPost != null){
     currentlyVisibleState = <PostDetail post={this.state.selectedPost} onClickingDelete={this.handleDeletingPost}
     onClickingEdit={this.handleEditClick} />
     buttonText = "Return to Posts";
   } else if (this.state.formVisibleOnPage) {
-    currentlyVisibleState = <NewPostForm onNewPostCreation={this.handleAddingNewPostToList} />
+    currentlyVisibleState = <AddPostForm onNewPostCreation={this.handleAddingNewPostToList} />
     buttonText = "Return to Posts";
   } else {
     currentlyVisibleState = <PostList postList={this.state.masterPostList} onPostSelection={this.handleChangingSelectedPost} />

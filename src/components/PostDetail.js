@@ -5,7 +5,6 @@ import Figure from "react-bootstrap/Figure";
 
 function PostDetail(props) {
   const { post, onClickingDelete } = props;
-
   return (
     <React.Fragment>
       <h1>{post.title}</h1>

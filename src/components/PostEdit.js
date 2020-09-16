@@ -12,6 +12,7 @@ function PostEdit(props) {
       body: event.target.body.value,
       date: event.target.date.value,
       picture: event.target.picture.value,
+      vote: post.vote,
       id: post.id,
     });
   }

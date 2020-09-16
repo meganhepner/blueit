@@ -70,6 +70,38 @@ class PostControl extends React.Component {
     this.setState({ selectedPost: selectedPost });
   };
 
+  handleChangingSelectedUpvote = (id) => {
+    const selectedPost = this.state.masterPostList.filter(
+      (post) => post.id === id
+    )[0];
+    // selectedPost.vote += 1; Solution 2 not functional programming
+    const incrementedPost = Object.assign({}, selectedPost, {vote: selectedPost.vote + 1});
+    // const incrementedPost2 = { ...selectedPost, vote: selectedPost.vote + 1}; Solution 3 spread operator
+    const editedMasterPostList = this.state.masterPostList
+      .filter(post => post.id !== id)
+      .concat(incrementedPost);
+    this.setState({
+      masterPostList: editedMasterPostList,
+    })
+  };
+
+  handleChangingSelectedDownvote = (id) => {
+    const selectedPost = this.state.masterPostList.filter(
+      (post) => post.id === id
+    )[0];
+    if (selectedPost.vote > 0) {
+      const decrementedPost = Object.assign({}, selectedPost, {vote: selectedPost.vote - 1})
+      const editedMasterPostList = this.state.masterPostList
+        .filter(post => post.id !== id)
+        .concat(decrementedPost);
+      this.setState({
+      masterPostList: editedMasterPostList,
+    })
+  } 
+};
+
+
+
 
 render (){
   let currentlyVisibleState = null;
@@ -86,7 +118,7 @@ render (){
     currentlyVisibleState = <AddPostForm onNewPostCreation={this.handleAddingNewPostToList} />
     buttonText = "Return to Posts";
   } else {
-    currentlyVisibleState = <PostList postList={this.state.masterPostList} onPostSelection={this.handleChangingSelectedPost} />
+    currentlyVisibleState = <PostList postList={this.state.masterPostList} onPostSelection={this.handleChangingSelectedPost} onUpvoteSelection={this.handleChangingSelectedUpvote} onDownvoteSelection={this.handleChangingSelectedDownvote}/>
     buttonText = "Add Post";
   }
   

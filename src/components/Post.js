@@ -8,6 +8,9 @@ function Post(props){
         <h3>{props.title}</h3>
         <p>Posted by {props.author} on {props.date}</p>
       </div>
+      <button onClick={() => props.whenUpvoteClicked(props.id)}>Upvote</button>
+      <p>{props.vote}</p>
+      <button onClick={() => props.whenDownvoteClicked(props.id)}>Downvote</button>
     </React.Fragment>
   );
 }
@@ -18,8 +21,11 @@ Post.propTypes = {
   body: PropTypes.string.isRequired,
   date: PropTypes.instanceOf(Date).isRequired,
   picture: PropTypes.string,
+  vote: PropTypes.number,
   id: PropTypes.string,
   whenPostClicked: PropTypes.func,
+  whenUpvoteClicked: PropTypes.func,
+  whenDownvoteClicked: PropTypes.func,
 };
 
 export default Post;

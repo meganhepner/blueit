@@ -9,21 +9,27 @@ function PostList(props){
     {props.postList.map((post) => 
       <Post
         whenPostClicked = { props.onPostSelection }
+        whenUpvoteClicked = {props.onUpvoteSelection}
+        whenDownvoteClicked = {props.onDownvoteSelection}
         title={post.title}
         author={post.author}
         body={post.body}
         date={post.date}
         picture={post.picture}
         id={post.id}
+        vote={post.vote}
         key={post.id}/>
-    )}
+    ).sort((a, b) => (b.props.vote - a.props.vote))}
+    
     </React.Fragment>
   );
 }
 
 PostList.propTypes = {
   postList: PropTypes.array,
-  onPostSelection: PropTypes.func
+  onPostSelection: PropTypes.func,
+  onUpvoteSelection: PropTypes.func,
+  onDownvoteSelection: PropTypes.func,
 }
 
 

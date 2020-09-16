@@ -85,6 +85,23 @@ class PostControl extends React.Component {
     })
   };
 
+  handleChangingSelectedDownvote = (id) => {
+    const selectedPost = this.state.masterPostList.filter(
+      (post) => post.id === id
+    )[0];
+    if (selectedPost.vote > 0) {
+      const decrementedPost = Object.assign({}, selectedPost, {vote: selectedPost.vote - 1})
+      const editedMasterPostList = this.state.masterPostList
+        .filter(post => post.id !== id)
+        .concat(decrementedPost);
+      this.setState({
+      masterPostList: editedMasterPostList,
+    })
+  } 
+};
+
+
+
 
 render (){
   let currentlyVisibleState = null;

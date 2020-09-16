@@ -19,7 +19,8 @@ function PostList(props){
         id={post.id}
         vote={post.vote}
         key={post.id}/>
-    )}
+    ).sort((a, b) => (b.props.vote - a.props.vote))}
+    
     </React.Fragment>
   );
 }
